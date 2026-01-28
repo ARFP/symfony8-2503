@@ -15,7 +15,7 @@ Identifier les composants nécessaires pour exécuter le projet
     - PHP 8.4
     - Composer gestionnaire de dépendances pour PHP
 - Symfony 8.x avec API PLatform
-    - sà installer dans le conteneur à l'aide de Composer
+    - à installer dans le conteneur à l'aide de Composer
 
 A partir de cette liste, nous pouvons créer un conteneur Docker qui exécutera notre future application Symfony.
 

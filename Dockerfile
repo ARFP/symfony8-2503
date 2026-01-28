@@ -16,4 +16,6 @@ RUN apt-get update -qq && apt-get install -qy \
 
 RUN docker-php-ext-install pdo_mysql opcache
 
+COPY ./conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+
 RUN a2enmod rewrite
