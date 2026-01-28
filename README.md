@@ -47,4 +47,9 @@ Nous alons éditer l'hôte virtuel par défaut dans un fichier qu'il sera néces
 
 
 
+
+```bash
+docker exec -it symfony8-2305-web bash
+```
+
 ## Installation de Symfony
