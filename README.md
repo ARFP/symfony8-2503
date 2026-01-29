@@ -6,10 +6,10 @@ Procédure d'installation de Symfony avec Docker.
 
 ## Stack technique
 
-Identifier les composants nécessaires pour exécuter le projet
+Identifier les composants nécessaires pour exécuter le projet.
 
 - Une base de données
-    - mariadb 11.8.5
+    - Mariadb 11.8.5
 - Un serveur web avec l'interpréteur PHP
     - Apache 2.4
     - PHP 8.4
