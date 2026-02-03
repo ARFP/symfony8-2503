@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flower index{% endblock %}
+
+{% block entete %}
+    <h1>Flower Management</h1>
+{% endblock %}
+
+{% block body %}
+    <h1>Flower index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flower in flowers %}
+            <tr>
+                <td>{{ flower.id }}</td>
+                <td>{{ flower.name }}</td>
+                <td>{{ flower.color }}</td>
+                <td>
+                    <a href="{{ path('app_my_flowers_show', {'id': flower.id}) }}">show</a>
+                    <a href="{{ path('app_my_flowers_edit', {'id': flower.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_my_flowers_new') }}">Create new</a>
+{% endblock %}

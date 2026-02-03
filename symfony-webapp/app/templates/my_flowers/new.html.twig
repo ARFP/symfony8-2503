@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Flower{% endblock %}
+
+{% block body %}
+    <h1>Create new Flower</h1>
+
+    {{ include('my_flowers/_form.html.twig') }}
+
+    <a href="{{ path('app_my_flowers_index') }}">back to list</a>
+{% endblock %}

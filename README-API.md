@@ -59,8 +59,8 @@ L'installation de Symfony est terminée
 ## Installation des dépendances Symfony pour créer une API Rest
 
 ```sh
+composer require symfony/maker-bundle --dev
 composer require api 
-composer require symfony/apache-pack
 ``` 
 
 Cette commande va installer les dépendances nécessaires pour un projet d'API Rest.

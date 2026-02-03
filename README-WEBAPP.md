@@ -1,6 +1,6 @@
 # Symfony8-2503
 
-Création d'une API REST
+Création d'une Application Web.
 
 Procédure d'installation de Symfony avec Docker.
 
@@ -14,7 +14,7 @@ Identifier les composants nécessaires pour exécuter le projet.
     - Apache 2.4
     - PHP 8.4
     - Composer gestionnaire de dépendances pour PHP
-- Symfony 8.x avec API PLatform
+- Symfony 8.x avec webapp
     - à installer dans le conteneur à l'aide de Composer
 
 A partir de cette liste, nous pouvons créer un conteneur Docker qui exécutera notre future application Symfony.
@@ -53,49 +53,33 @@ docker exec -it symfony8-2305-web bash
 
 L'installation de Symfony est terminée
 
-- Accéder à l'url http://127.0.0.1:8000
+- Accéder à l'url http://127.0.0.1:9001
 - Vous devriez voir la page par défaut de Symfony.
 
 ## Installation des dépendances Symfony pour créer une API Rest
 
 ```sh
-composer require api 
-composer require symfony/apache-pack
+composer require symfony/maker-bundle --dev
+composer require webapp symfony/orm-pack symfony/twig-bundle form validator security-csrf
 ``` 
 
-Cette commande va installer les dépendances nécessaires pour un projet d'API Rest.
-
-Une fois les dépendances installées, accéder à l'url [http://localhost:8000/index.php/api/](http://localhost:8000/index.php/api/). Vous devriez voir une page ayant pour titre "Hello API Platform.
-
-Le projet étant destiné à n'accueillir qu'une API, nous allons le configurer pour que l'adresse de base [http://localhost:8000/](http://localhost:8000/) pointe directement sur l'API.
-
-Ouvrir le fichier `myapi/config/routes/api_platform.yaml`
-
-Puis commenter la ligne `prefix: /api` en la prefixant avec un hashtag comme ceci : `# prefix: /api`.
+Cette commande va installer les dépendances nécessaires pour un projet d'application  Web.
 
 # Configurer et créer la base de données
 
-Ouvrir le fichier `myapi/.env`
+Ouvrir le fichier `app/.env`
 
 Commenter la ligne `DATABASE_URL="postgre.....
 
 et ajouter en dessous la ligne suivante : 
 
-`DATABASE_URL="mysql://user:user@db:3306/db_myapi?serverVersion=11.8.5-MariaDB&charset=utf8mb4"`
-
-Direction le terminal du conteneur Web :
-
-```bash
-cd /var/www/html
-php bin/console doctrine:database:create
-```
+`DATABASE_URL="mysql://user_symfony:azer@db:3306/db_symfony?serverVersion=10.8.5-MariaDB&charset=utf8mb4"`
 
 ## Créer la 1ère entité.
 
 
 ```bash
 cd /var/www/html
-composer require symfony/maker-bundle --dev
 php bin/console make:entity
 ```
 
@@ -107,8 +91,13 @@ php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 ```
 
-# Autres commandes de migrations : 
+# Créer un contrôleur 
 
+```
+```
+
+
+# Autres commandes de migrations : 
 
 ```bash
 # Afficher la version de la migration en cours
