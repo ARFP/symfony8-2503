@@ -1,0 +1,11 @@
+api_platform:
+    version: 1.0.0
+    title: Hello API Platform
+    formats:
+        json: ['application/json']
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+            
+    

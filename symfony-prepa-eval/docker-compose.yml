@@ -1,0 +1,28 @@
+name: symfony8-2305-prepa
+volumes:
+  db_data: {}
+services:
+  db: 
+    image: mariadb:11.8.5
+    container_name: symfony8-2305-prepa-db
+    restart: unless-stopped
+    ports: ["3317:3306"]
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: db_symfony
+      MYSQL_USER: user_symfony 
+      MYSQL_PASSWORD: azer
+  web: 
+    # image: php:8.4-apache
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony8-2305-prepa-web
+    restart: unless-stopped
+    ports: ["9010:80"]
+    depends_on: ['db']
+    links: ['db']
+    volumes:
+      - ./app:/var/www/html

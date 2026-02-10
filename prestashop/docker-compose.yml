@@ -24,7 +24,7 @@ services:
     ports:
       - 8080:80
     environment:
-      DB_SERVER: prestashop-mysql
+      DB_SERVER: prestashop-sql
       DB_NAME: prestashop
       DB_USER: prestashop
       DB_PASSWD: azer
