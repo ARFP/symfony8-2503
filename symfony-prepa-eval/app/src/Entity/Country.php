@@ -29,6 +29,10 @@ class Country
     #[ORM\OneToMany(targetEntity: City::class, mappedBy: 'country')]
     private Collection $cities;
 
+    #[ORM\ManyToOne(inversedBy: 'countries')]
+    #[ORM\JoinColumn(nullable: true, options: ['default' => NULL])]
+    private ?Continent $continent = null;
+
     public function __construct()
     {
         $this->cities = new ArrayCollection();
@@ -89,6 +93,18 @@ class Country
                 $city->setCountry(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getContinent(): ?Continent
+    {
+        return $this->continent;
+    }
+
+    public function setContinent(?Continent $continent): static
+    {
+        $this->continent = $continent;
 
         return $this;
     }
